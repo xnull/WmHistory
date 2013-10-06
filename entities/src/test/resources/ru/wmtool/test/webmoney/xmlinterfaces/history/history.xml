@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="windows-1251" ?>
+<w3s.response>
+	<reqn>1</reqn>
+	<operations cnt="9" cntA="6">
+		<operation id="560921650" ts="560921650">
+			<pursesrc>R195262976176</pursesrc>
+			<pursedest>R675010658902</pursedest>
+			<amount>0.01</amount>
+			<comiss>0.00</comiss>
+			<opertype>0</opertype>
+			<wminvid>0</wminvid>
+			<orderid>0</orderid>
+			<tranid>1307332587</tranid>
+			<period>0</period>
+			<desc>Partner http://spasibo.kz/partner.php Exchange WM	http://spasibo.kz/</desc>
+			<datecrt>20110606 07:56:28</datecrt>
+			<dateupd>20110606 07:56:28</dateupd>
+			<corrwm>190856609610</corrwm>
+			<rest>82.15</rest>
+		</operation>
+		<operation id="561208164" ts="561208164">
+			<pursesrc>R440723814024</pursesrc>
+			<pursedest>R675010658902</pursedest>
+			<amount>56.96</amount>
+			<comiss>0.00</comiss>
+			<opertype>0</opertype>
+			<wminvid>0</wminvid>
+			<orderid>0</orderid>
+			<tranid>33254294</tranid>
+			<period>0</period>
+			<desc>Transfer from exchanger.ru section WM as per new bid 5731301</desc>
+			<datecrt>20110606 18:59:03</datecrt>
+			<dateupd>20110606 18:59:03</dateupd>
+			<corrwm>128984249415</corrwm>
+			<rest>139.11</rest>
+		</operation>
+		<operation id="566215768" ts="566215768">
+			<pursesrc>R675010658902</pursesrc>
+			<pursedest>R440723814024</pursedest>
+			<amount>137.00</amount>
+			<comiss>1.10</comiss>
+			<opertype>0</opertype>
+			<wminvid>0</wminvid>
+			<orderid>0</orderid>
+			<tranid>33837391</tranid>
+			<period>0</period>
+			<desc>Оплата суммы новой заявки номер 5825383 по обмену 137 WMR на 4,9 WMZ.</desc>
+			<datecrt>20110621 09:58:58</datecrt>
+			<dateupd>20110621 09:58:58</dateupd>
+			<corrwm>128984249415</corrwm>
+			<rest>1.01</rest>
+		</operation>
+		<operation id="567997365" ts="567997365">
+			<pursesrc>R948209712256</pursesrc>
+			<pursedest>R675010658902</pursedest>
+			<amount>294.00</amount>
+			<comiss>0.00</comiss>
+			<opertype>0</opertype>
+			<wminvid>0</wminvid>
+			<orderid>0</orderid>
+			<tranid>15133256</tranid>
+			<period>0</period>
+			<desc>Платеж N: 30364166 / 3263-3 по номеру чека N: 30364166 от	26/06/2011 системой получен.</desc>
+			<datecrt>20110626 18:17:02</datecrt>
+			<dateupd>20110626 18:17:02</dateupd>
+			<corrwm>159269360755</corrwm>
+			<rest>295.01</rest>
+		</operation>
+		<operation id="567998332" ts="567998332">
+			<pursesrc>R675010658902</pursesrc>
+			<pursedest>R334890639093</pursedest>
+			<amount>88.80</amount>
+			<comiss>0.72</comiss>
+			<opertype>0</opertype>
+			<wminvid>0</wminvid>
+			<orderid>0</orderid>
+			<tranid>0</tranid>
+			<period>0</period>
+			<desc>Exchange 89.52 WMR to WMZ purse Z229563384572</desc>
+			<datecrt>20110626 18:20:29</datecrt>
+			<dateupd>20110626 18:20:29</dateupd>
+			<corrwm>128984249415</corrwm>
+			<rest>205.49</rest>
+		</operation>
+		<operation id="568006614" ts="568006614">
+			<pursesrc>R440723814024</pursesrc>
+			<pursedest>R675010658902</pursedest>
+			<amount>85.80</amount>
+			<comiss>0.00</comiss>
+			<opertype>0</opertype>
+			<wminvid>0</wminvid>
+			<orderid>0</orderid>
+			<tranid>34059259</tranid>
+			<period>0</period>
+			<desc>Transfer from exchanger.ru section WM as per new bid 5859434</desc>
+			<datecrt>20110626 18:51:00</datecrt>
+			<dateupd>20110626 18:51:00</dateupd>
+			<corrwm>128984249415</corrwm>
+			<rest>291.29</rest>
+		</operation>
+		<operation id="569145870" ts="569145870">
+			<pursesrc>R675010658902</pursesrc>
+			<pursedest>R440723814024</pursedest>
+			<amount>208.00</amount>
+			<comiss>1.67</comiss>
+			<opertype>0</opertype>
+			<wminvid>0</wminvid>
+			<orderid>0</orderid>
+			<tranid>34203176</tranid>
+			<period>0</period>
+			<desc>Оплата суммы новой заявки номер 5881776 по обмену 208 WMR на 7,46 WMZ.</desc>
+			<datecrt>20110630 04:53:50</datecrt>
+			<dateupd>20110630 04:53:50</dateupd>
+			<corrwm>128984249415</corrwm>
+			<rest>81.62</rest>
+		</operation>
+		<operation id="569145911" ts="569145911">
+			<pursesrc>R675010658902</pursesrc>
+			<pursedest>R440723814024</pursedest>
+			<amount>80.00</amount>
+			<comiss>0.64</comiss>
+			<opertype>0</opertype>
+			<wminvid>0</wminvid>
+			<orderid>0</orderid>
+			<tranid>34203181</tranid>
+			<period>0</period>
+			<desc>Оплата суммы новой заявки номер 5881778 по обмену 80 WMR на 2,87 WMZ.</desc>
+			<datecrt>20110630 04:54:40</datecrt>
+			<dateupd>20110630 04:54:40</dateupd>
+			<corrwm>128984249415</corrwm>
+			<rest>0.98</rest>
+		</operation>
+		<operation id="569176900" ts="569176900">
+			<pursesrc>R440723814024</pursesrc>
+			<pursedest>R675010658902</pursedest>
+			<amount>142.60</amount>
+			<comiss>0.00</comiss>
+			<opertype>0</opertype>
+			<wminvid>0</wminvid>
+			<orderid>0</orderid>
+			<tranid>34206078</tranid>
+			<period>0</period>
+			<desc>Transfer from exchanger.ru section WM as per new bid 5881775 </desc>
+			<datecrt>20110630 09:50:26</datecrt>
+			<dateupd>20110630 09:50:26</dateupd>
+			<corrwm>128984249415</corrwm>
+			<rest>143.58</rest>
+		</operation>
+	</operations>
+	<retval>0</retval>
+	<retdesc />
+</w3s.response>

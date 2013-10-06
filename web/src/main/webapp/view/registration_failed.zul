@@ -1,0 +1,29 @@
+<?page title="Активация прошла неудачно" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="Регистрация прошла неудачно" border="normal"
+		width="400px" style="margin:auto;position: relative;top: 25%;">
+		<zscript>
+	String error = ((Exception) requestScope.get("error")).getMessage();
+</zscript>
+		<div style="padding:10px;">
+			<label id="errorLabel" value="${error }"></label>
+		</div>
+		<div style="padding:10px;">
+			Через 10 секунд вы будете перенаправлены на страницу
+			регистрации для повторной попытки зарегистрироваться!
+		</div>
+		<div style="padding:10px;">
+			<progressmeter style="margin: auto;" id="pm" value="0"
+				width="300px" />
+		</div>
+		<timer id="timer" delay="1000" repeats="true">
+			<attribute name="onTimer">
+	if (pm.getValue() == 100) {
+		Executions.getCurrent().sendRedirect("/view/register.zul");
+	} else {
+		pm.setValue(pm.getValue() + 10);
+	}
+</attribute>
+		</timer>
+	</window>
+</zk>

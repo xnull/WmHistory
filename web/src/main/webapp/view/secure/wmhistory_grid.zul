@@ -1,0 +1,37 @@
+﻿<?page contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window
+		apply="${operationsHistoryController.operationsHistoryView}">
+		<listbox id="operationsGrid">
+			<listhead sizable="true">
+				<!-- datecrt -->
+				<listheader label="Время" />
+				<!-- pursesrc -->
+				<listheader label="Источник" />
+				<!-- pursedest -->
+				<listheader label="Назначение" />
+				<!-- amount -->
+				<listheader label="Сумма" />
+				<!-- comiss -->
+				<listheader label="Комиссия" />
+				<!-- rest -->
+				<listheader label="Остаток" />
+				<!-- desc -->
+				<listheader label="Информация" />
+				<!--  -->
+			</listhead>
+		</listbox>
+		<div align="center">
+			<paging id="paging" mold="os" />
+		</div>
+	</window>
+	<window id="operationDetailWindow" closable="true" border="normal"
+		width="640px" height="320px" zclass="z-window-popup"
+		action="show: slideDown;hide: slideUp" visible="false"
+		onClose="self.visible = false; event.stopPropagation();"
+		apply="${operationsHistoryController.operationDetailView}">
+		<listbox id="operationDetail" />
+	</window>
+</zk>
+

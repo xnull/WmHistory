@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:zksp="http://www.zkoss.org/2008/zkspring/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           				http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.3.xsd
+           				http://www.zkoss.org/2008/zkspring/security http://www.zkoss.org/2008/zkspring/security/zkspring-security.xsd">
+
+	<http auto-config="true" use-expressions="false">
+		<intercept-url pattern="/view/secure/**" access="ROLE_USER, ROLE_READER" />
+		<intercept-url pattern="/view/css/**,/view/img/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<intercept-url pattern="/view/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<form-login login-page="/view/login.zul" authentication-failure-url="/view/login.zul" default-target-url="/view/secure/cabinet.zul"/>
+		
+		<custom-filter ref="zkDesktopReuseFilter" position="FIRST" />
+        <custom-filter ref="zkDisableSessionInvalidateFilter" before="FORM_LOGIN_FILTER"/>
+        <custom-filter ref="zkEnableSessionInvalidateFilter" before="FILTER_SECURITY_INTERCEPTOR"/>
+        <custom-filter ref="zkLoginOKFilter" after="FILTER_SECURITY_INTERCEPTOR"/>
+        <custom-filter ref="zkError403Filter" after="LOGOUT_FILTER"/>
+	</http>
+
+	<authentication-manager>
+		<authentication-provider>
+			<password-encoder hash="sha-256">
+			</password-encoder>
+			<jdbc-user-service data-source-ref="dataSource"/>
+		</authentication-provider>
+	</authentication-manager>
+	
+	<zksp:zk-event login-template-close-delay="5">
+          <zksp:intercept-event event="onClick" path="//**/btn_*" access="ROLE_USER"/>
+          <zksp:intercept-event path="/view/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+          <zksp:form-login login-page="/view/login.zul" authentication-failure-url="/view/login.zul" login-ok-url="/view/secure/cabinet.zul"/>
+     </zksp:zk-event>
+
+</beans:beans>	

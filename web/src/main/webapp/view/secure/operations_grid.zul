@@ -1,0 +1,22 @@
+<?page contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<!-- Окно, отображающее историю операций -->
+<zk>
+<div apply="${operationsHistoryController.operationsHistoryView}">
+	<grid id="operationsGrid">
+	  <columns>
+	  	<column width="40px"></column>
+		<column label="Время"></column>
+		<column label="Источник"></column>
+		<column label="Назначние"></column>
+		<column label="Сумма"></column>
+		<column label="Комиссия"></column>
+		<column label="Остаток"></column>
+		<column label="Информация"></column>
+	  </columns>
+	</grid>
+	<div align="center">
+		<paging id="paging" mold="os"></paging>
+	</div>
+</div>
+</zk>

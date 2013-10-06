@@ -1,0 +1,9 @@
+<?page contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk xmlns:h="http://www.w3.org/1999/xhtml">
+	<window apply="${secureTestController}">
+		<label id="userNameLabel"/>
+		<h:br />
+		<a label="Logout" href="/j_spring_security_logout" />
+	</window>
+</zk>

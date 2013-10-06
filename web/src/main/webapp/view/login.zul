@@ -1,0 +1,43 @@
+<?page title="WmHistory login" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window title="WmHistory. Вход" border="normal" width="400px"
+		apply="${loginBuilder.loginView }"
+		style="margin:auto;position: relative;top: 25%;">
+		<h:form id="f" name="f"
+			action="${pageContext.request.contextPath}/j_spring_security_check"
+			method="POST" xmlns:h="http://www.w3.org/1999/xhtml">
+			<grid>
+				<rows>
+					<row>
+						Логин:
+						<textbox id="u" name="j_username" />
+					</row>
+					<row>
+						Пароль:
+						<textbox id="p" type="password"
+							name="j_password" />
+					</row>
+					<row>
+						<cell>
+							<checkbox id="r"
+								name="_spring_security_remember_me" />
+							<label>Запомнить на 2 недели</label>
+						</cell>
+						<cell>
+							<h:input type="submit" value="Войти" />
+						</cell>
+					</row>
+				</rows>
+			</grid>
+		</h:form>
+		<toolbar id="tb" height="20px" align="end">
+			<toolbarbutton label="Регистрация"
+				onClick='execution.sendRedirect("/view/register.zul")' />
+			<toolbarbutton label="Забыли пароль?"
+				onClick='execution.sendRedirect("/view/forgot_pass.zul")' />
+		</toolbar>
+	</window>
+	<include src="passwordInput.zul" />
+</zk>
+

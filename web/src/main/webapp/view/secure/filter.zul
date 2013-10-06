@@ -1,0 +1,15 @@
+<?page title="Operations History Filter" contentType="text/html;charset=UTF-8"?>
+<zk>
+<!-- Фильтрация -->
+  <separator orient="vertical" spacing="100px" />
+  <div id="filter" align="right" apply="ru.wmtool.web.filter.OperationsHistoryFilterImpl">
+  	<vbox>
+      <hbox>
+	    <label value="Начальная дата"></label>
+	    <datebox id="beginDateBox" width="100px"></datebox>
+	    <label value="Конечная дата"></label>
+	    <datebox id="endDateBox" width="100px"></datebox>
+	  </hbox>
+	</vbox>
+  </div>
+</zk>

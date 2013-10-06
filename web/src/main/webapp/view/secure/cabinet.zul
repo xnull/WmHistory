@@ -1,0 +1,54 @@
+<?page title="WmHistory login" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+
+<zk>
+	<!-- Генерация случайного пользователя -->
+   <zscript><![CDATA[
+	 import ru.wmtool.security.User;
+	 import ru.wmtool.interfaces.OperationsHistoryService;
+	 import ru.wmtool.services.fake.*;
+	 import ru.wmtool.web.wmids.tree.impl.UserServiceFakeImpl;
+	 
+	 void onClientInfo(ClientInfoEvent evt) {
+	 	int desktopWidth = evt.getDesktopWidth();
+	 }
+	 
+	 OperationsHistoryService service = new OperationsHistoryServiceFakeImpl();
+	 
+	 UserServiceFakeImpl usf = new UserServiceFakeImpl(service);
+	 User user = usf.generateUser();
+	 Executions.getCurrent().getDesktop().setAttribute("user",user);
+   ]]></zscript>
+   
+  <!-- Окно логина -->
+  <div onClientInfo="onClientInfo(event)" align="right" width="${desktopWidth}">	
+	<window border="normal" width="300px" >
+	  <hbox>
+	    <div align="left" width="100px">   <label value="${user.name}" /> </div>
+	    <div align="center"> <label value="Настройки" /> </div>
+	    <div align="right" width="100px">
+	    	<a href="${pageContext.request.contextPath}/j_spring_security_logout">Выход</a> 
+	    </div>
+	  </hbox>
+	</window>
+  </div>
+	<!-- Дерево вмидов -->
+  <separator orient="vertical" spacing="30px"></separator>
+  <hbox>	
+	<window id="wmid_window" border="normal" title="WMIDs" width="230px"
+		apply="${wmidsHierarchyBuilder.wmidsHierarchyView}">
+	  <tree id="wmid_tree">
+	 
+	  </tree>
+	</window>
+	<separator orient="horizontal" spacing="40px"></separator>
+	<!-- История операций и фильтрация -->
+	<window id="operationsHistory" border="normal" 
+		title="История операций по выбранному wmid" width="900px">
+		<include src="filter.zul" />
+		<div align="center" width="800px">
+		  <include src="operations_grid.zul" />
+		</div>
+	</window>
+  </hbox>
+</zk>

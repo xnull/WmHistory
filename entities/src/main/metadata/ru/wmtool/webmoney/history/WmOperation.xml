@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity name="WmOperation" class="ru.wmtool.webmoney.history.WmOperation" caption="Операция">
+	<attribute name="id" class="java.lang.Integer" caption="Идентификатор" />
+	<attribute name="purse" class="ru.wmtool.webmoney.Purse" caption="Кошелек" />
+	<attribute name="pursesrc" class="java.lang.String" caption="Источник" />
+	<attribute name="pursedest" class="java.lang.String" caption="Назначение" />
+	<attribute name="amount" class="java.lang.Double" caption="Сумма" />
+	<attribute name="comiss" class="java.lang.Double" caption="Комиссия" />
+	<attribute name="opertype" class="java.lang.Integer" caption="Тип операции" />
+	<attribute name="period" class="java.lang.Integer" caption="Период" />
+	<attribute name="wminvid" class="java.lang.Long" caption="WMID" />
+	<attribute name="orderid" class="java.lang.Integer" caption="Перевод" />
+	<attribute name="desc" class="java.lang.String" caption="Описание" />
+	<attribute name="datecrt" class="java.lang.String" caption="Дата" />
+	<attribute name="dateupd" class="java.lang.String" caption="Дата" />
+	<attribute name="corrwm" class="java.lang.Long" caption="хзчо" />
+	<attribute name="rest" class="java.lang.Double" caption="Остаток" />
+	
+	<view name="DetailView">
+		<attribute ref="wminvid"/>
+		<attribute ref="purse"/>
+		<attribute ref="pursesrc"/>
+		<attribute ref="pursedest"/>
+		<attribute ref="comiss"/>
+		<attribute ref="rest"/>
+	</view>
+</entity>

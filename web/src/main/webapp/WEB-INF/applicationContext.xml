@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+     	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
+
+	<bean
+		class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+	<bean
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+	<bean class="ru.wmtool.commons.logger.LoggerInjector" />
+	<tx:annotation-driven proxy-target-class="false" />
+	<context:annotation-config />
+
+	<!-- настройка транзакций, jdbc, jpa, etc... jdbc:h2:tcp://localhost/~/wmhistory 
+		- org.h2.Driver - sa -->
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="jdbc/wmhistory" />
+		<property name="resourceRef" value="true" />
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.simple.SimpleJdbcTemplate">
+		<constructor-arg ref="dataSource" />
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="emf" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="jpaDialect" ref="jpaDialect" />
+	</bean>
+
+	<bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
+
+	<bean id="emf"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceXmlLocation" value="/WEB-INF/persistence.xml" />
+		<property name="persistenceUnitName" value="WmHistory" />
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- выполнение sql-скриптов инициализации -->
+	<jdbc:initialize-database data-source="dataSource"
+		ignore-failures="ALL">
+		<jdbc:script location="/sql/import.sql" />
+	</jdbc:initialize-database>
+
+	<!-- Классы для пакета ru.wmtool.web.secure.test -->
+	<bean id="secureTestController" class="ru.wmtool.web.secure.test.SecureTestController"
+		scope="prototype" />
+
+	<!-- классы DAO в entities -->
+	<bean id="purseDao" class="ru.wmtool.dao.PurseDao" scope="singleton" />
+	<bean id="userDao" class="ru.wmtool.dao.UserDao" scope="singleton" />
+	<bean id="wmidDao" class="ru.wmtool.dao.WmidDao" scope="singleton" />
+	<bean id="contactDao" class="ru.wmtool.dao.ContactDao" scope="singleton" />
+	<bean id="authorityDao" class="ru.wmtool.dao.AuthorityDao" scope="singleton" />
+	<bean id="codeDao" class="ru.wmtool.dao.RegistrationConfirmationCodeDao" />
+
+	<!-- Классы для пакета ru.wmtool.web.operations -->
+	<bean id="operationsHistoryService"
+		class="ru.wmtool.services.fake.OperationsHistoryServiceFakeImpl"
+		scope="prototype" />
+
+	<bean id="operationDetailView"
+		class="ru.wmtool.web.operations.detail.impl.OperationDetailViewImpl"
+		scope="prototype" />
+
+	<bean id="operationDetailPresenter"
+		class="ru.wmtool.web.operations.detail.impl.OperationDetailPresenterImpl"
+		scope="prototype" />
+
+	<bean id="operationsHistoryView"
+		class="ru.wmtool.web.operations.grid.impl.OperationsHistoryViewImpl"
+		scope="prototype" />
+
+	<bean id="operationsHistoryPresenter"
+		class="ru.wmtool.web.operations.grid.impl.OperationsHistoryPresenterImpl"
+		scope="prototype">
+		<property name="operationsHistoryService" ref="operationsHistoryService" />
+	</bean>
+
+	<bean id="operationsHistoryFilter" class="ru.wmtool.web.filter.OperationsHistoryFilterImpl"
+		scope="prototype">
+		<property name="operationsHistoryService" ref="operationsHistoryService" />
+	</bean>
+
+	<bean id="operationsHistoryController"
+		class="ru.wmtool.web.operations.controller.impl.OperationsHistoryControllerImpl"
+		factory-method="createNew" scope="prototype">
+		<constructor-arg name="operationsHistoryView" ref="operationsHistoryView" />
+		<constructor-arg name="operationsHistoryPresenter"
+			ref="operationsHistoryPresenter" />
+		<constructor-arg name="operationDetailView" ref="operationDetailView" />
+		<constructor-arg name="operationDetailPresenter" ref="operationDetailPresenter" />
+		<constructor-arg name="operationsHistoryFilter" ref="operationsHistoryFilter" />
+	</bean>
+
+	<!-- Классы для пакета ru.wmtool.web.cabinet -->
+	<bean id="wmidsHierarchyView" class="ru.wmtool.web.wmids.tree.impl.WmidsHierarchyViewImpl"
+		scope="prototype">
+	</bean>
+
+	<bean id="wmidsHierarchyPresenter"
+		class="ru.wmtool.web.wmids.tree.impl.WmidsHierarchyPresenterImpl"
+		scope="prototype">
+	</bean>
+
+	<bean id="wmidsHierarchyBuilder"
+		class="ru.wmtool.web.wmids.builder.impl.WmidsHierarchyBuilderImpl"
+		factory-method="createNew" scope="request">
+		<constructor-arg name="wmidsHierarchyView" ref="wmidsHierarchyView" />
+		<constructor-arg name="wmidsHierarchyPresenter" ref="wmidsHierarchyPresenter" />
+	</bean>
+
+	<!-- Классы для пакета ru.wmtool.web.register -->
+
+	<bean id="userService" class="ru.wmtool.generator.impl.UserServiceImpl"
+		>
+	</bean>
+
+	<bean id="registerView" class="ru.wmtool.web.register.impl.RegisterViewImpl"
+		scope="prototype">
+	</bean>
+
+	<bean id="registerPresenter" class="ru.wmtool.web.register.impl.RegisterPresenterImpl"
+		scope="prototype" />
+
+	<bean id="forgotPasswordView" class="ru.wmtool.web.register.impl.ForgotPasswordViewImpl"
+		scope="prototype">
+	</bean>
+
+	<bean id="forgotPasswordPresenter" class="ru.wmtool.web.register.impl.ForgotPasswordPresenterImpl"
+		scope="prototype" />
+
+	<bean id="registerBuilder" class="ru.wmtool.web.register.impl.RegisterBuilderImpl"
+		factory-method="createNew" scope="prototype">
+		<constructor-arg name="registerPresenter" ref="registerPresenter" />
+		<constructor-arg name="registerView" ref="registerView" />
+		<constructor-arg name="forgotPasswordView" ref="forgotPasswordView" />
+		<constructor-arg name="forgotPasswordPresenter" ref="forgotPasswordPresenter" />
+	</bean>
+
+	<!-- классы для входа и сброса пароля -->
+
+	<bean id="loginBuilder" class="ru.wmtool.web.login.impl.LoginBuilderImpl"
+		factory-method="createNew" scope="prototype">
+		<constructor-arg name="loginPresenter" ref="loginPresenter" />
+		<constructor-arg name="loginView" ref="loginView" />
+		<constructor-arg name="passwordInputPresenter" ref="passwordInputPresenter" />
+		<constructor-arg name="passwordInputView" ref="passwordInputView" />
+	</bean>
+
+	<bean id="loginPresenter" class="ru.wmtool.web.login.impl.LoginPresenterImpl"
+		scope="prototype">
+	</bean>
+	<bean id="loginView" class="ru.wmtool.web.login.impl.LoginViewImpl"
+		scope="prototype">
+	</bean>
+
+	<bean id="passwordInputPresenter" class="ru.wmtool.web.login.impl.PasswordInputPresenterImpl"
+		scope="prototype">
+	</bean>
+	<bean id="passwordInputView" class="ru.wmtool.web.login.impl.PasswordInputViewImpl"
+		scope="prototype">
+	</bean>
+
+</beans>

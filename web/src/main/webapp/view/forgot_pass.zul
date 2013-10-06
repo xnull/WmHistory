@@ -1,0 +1,38 @@
+<?page title="WmHistory. Забыли пароль?" contentType="text/html;charset=UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk>
+	<window title="WmHistory. Забыли пароль?" border="normal"
+		width="400px" apply="${registerBuilder.forgotPasswordView}"
+		style="margin:auto;position: relative;top: 25%;">
+		<div style="border: 1px solid #CCCCCC;">
+			<div style="padding: 10px; font: 12pt/12pt sans-serif;">
+				<label>
+					На указанный Вами адрес электронной почты будет
+					выслано письмо со ссылкой для повторного получения
+					пароля
+				</label>
+			</div>
+			<div style="padding:10px;">
+				<grid>
+					<rows>
+						<row>
+							<cell>Введите Ваш e-mail</cell>
+							<cell>
+								<textbox id="emailBox" type="text"
+									name="email"
+									constraint="/.+@.+\.[a-z]+/: Пожалуйста, введите email в формате xx@yy.zz" />
+							</cell>
+						</row>
+					</rows>
+				</grid>
+				<div style="padding: 15px;">
+					<button id="sendBtn" label="Отправить письмо!"></button>
+				</div>
+			</div>
+		</div>
+		<toolbar id="tb" height="20px" align="end">
+			<toolbarbutton label="Вход в систему"
+				onClick='execution.sendRedirect("/")' />
+		</toolbar>
+	</window>
+</zk>

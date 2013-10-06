@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<w3s.response>
+	<reqn>1</reqn>
+	<trustlist cnt="10">
+		<trust id="1891719" inv="0" trans="1" purse="0" transhist="0"
+			MsgHist="0" Msg="0" auth="2">
+			<purse>R675010658902</purse>
+			<master>128984249415</master>
+			<daylimit>0.00</daylimit>
+			<dlimit>0.00</dlimit>
+			<wlimit>0.00</wlimit>
+			<mlimit>0.00</mlimit>
+			<dsum>288.00</dsum>
+			<wsum>288.00</wsum>
+			<msum>425.00</msum>
+			<lastsumdate>2011.06.30</lastsumdate>
+		</trust>
+		<trust id="1891858" inv="0" trans="1" purse="1" transhist="0"
+			MsgHist="0" Msg="0" auth="6">
+			<purse>R378720716331</purse>
+			<master>865974653293</master>
+			<daylimit>0.00</daylimit>
+			<dlimit>0.00</dlimit>
+			<wlimit>0.00</wlimit>
+			<mlimit>0.00</mlimit>
+			<dsum>0.00</dsum>
+			<wsum>0.00</wsum>
+			<msum>0.00</msum>
+			<lastsumdate>2009.03.23</lastsumdate>
+		</trust>
+		<trust id="1891861" inv="0" trans="1" purse="1" transhist="0"
+			MsgHist="0" Msg="0" auth="6">
+			<purse>Z229563384572</purse>
+			<master>865974653293</master>
+			<daylimit>0.00</daylimit>
+			<dlimit>0.00</dlimit>
+			<wlimit>0.00</wlimit>
+			<mlimit>0.00</mlimit>
+			<dsum>0.00</dsum>
+			<wsum>0.00</wsum>
+			<msum>0.00</msum>
+			<lastsumdate>2009.03.23</lastsumdate>
+		</trust>
+		<trust id="1891863" inv="0" trans="1" purse="1" transhist="0"
+			MsgHist="0" Msg="0" auth="6">
+			<purse>E136639439832</purse>
+			<master>865974653293</master>
+			<daylimit>0.00</daylimit>
+			<dlimit>0.00</dlimit>
+			<wlimit>0.00</wlimit>
+			<mlimit>0.00</mlimit>
+			<dsum>0.00</dsum>
+			<wsum>0.00</wsum>
+			<msum>0.00</msum>
+			<lastsumdate>2009.03.23</lastsumdate>
+		</trust>
+		<trust id="1892032" inv="0" trans="1" purse="1" transhist="0"
+			MsgHist="0" Msg="0" auth="6">
+			<purse>R675010658902</purse>
+			<master>865974653293</master>
+			<daylimit>0.00</daylimit>
+			<dlimit>0.00</dlimit>
+			<wlimit>0.00</wlimit>
+			<mlimit>0.00</mlimit>
+			<dsum>0.50</dsum>
+			<wsum>0.50</wsum>
+			<msum>0.50</msum>
+			<lastsumdate>2009.09.18</lastsumdate>
+		</trust>
+		<trust id="2540033" inv="0" trans="1" purse="1" transhist="0"
+			MsgHist="0" Msg="0" auth="6">
+			<purse>Y161218671956</purse>
+			<master>865974653293</master>
+			<daylimit>0.00</daylimit>
+			<dlimit>0.00</dlimit>
+			<wlimit>0.00</wlimit>
+			<mlimit>0.00</mlimit>
+			<dsum>2.19</dsum>
+			<wsum>2.19</wsum>
+			<msum>11.18</msum>
+			<lastsumdate>2009.09.18</lastsumdate>
+		</trust>
+		<trust id="1764777" inv="0" trans="1" purse="0" transhist="0"
+			MsgHist="0" Msg="0" auth="2">
+			<purse>Z229563384572</purse>
+			<master>128984249415</master>
+			<daylimit>0.00</daylimit>
+			<dlimit>0.00</dlimit>
+			<wlimit>0.00</wlimit>
+			<mlimit>0.00</mlimit>
+			<dsum>5.00</dsum>
+			<wsum>8.00</wsum>
+			<msum>10.00</msum>
+			<lastsumdate>2011.06.30</lastsumdate>
+		</trust>
+		<trust id="1764624" inv="0" trans="1" purse="0" transhist="0"
+			MsgHist="0" Msg="0" auth="2">
+			<purse>R378720716331</purse>
+			<master>128984249415</master>
+			<daylimit>0.00</daylimit>
+			<dlimit>0.00</dlimit>
+			<wlimit>0.00</wlimit>
+			<mlimit>0.00</mlimit>
+			<dsum>100.00</dsum>
+			<wsum>100.00</wsum>
+			<msum>100.00</msum>
+			<lastsumdate>2009.03.12</lastsumdate>
+		</trust>
+		<trust id="2464120" inv="0" trans="1" purse="1" transhist="0"
+			MsgHist="0" Msg="0" auth="6">
+			<purse>B204812960251</purse>
+			<master>865974653293</master>
+			<daylimit>0.00</daylimit>
+			<dlimit>0.00</dlimit>
+			<wlimit>0.00</wlimit>
+			<mlimit>0.00</mlimit>
+			<dsum>15.72</dsum>
+			<wsum>15.72</wsum>
+			<msum>43.47</msum>
+			<lastsumdate>2009.09.21</lastsumdate>
+		</trust>
+		<trust id="1853222" inv="0" trans="1" purse="0" transhist="0"
+			MsgHist="0" Msg="0" auth="2">
+			<purse>E136639439832</purse>
+			<master>128984249415</master>
+			<daylimit>0.00</daylimit>
+			<dlimit>0.00</dlimit>
+			<wlimit>0.00</wlimit>
+			<mlimit>0.00</mlimit>
+			<dsum>0.54</dsum>
+			<wsum>0.54</wsum>
+			<msum>0.54</msum>
+			<lastsumdate>2009.08.13</lastsumdate>
+		</trust>
+	</trustlist>
+	<retval>0</retval>
+	<retdesc></retdesc>
+</w3s.response>

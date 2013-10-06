@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context antiJARLocking="true" path="/web">
+	<Resource auth="Container" 
+	   driverClassName="org.h2.Driver" 
+	   maxActive="20" 
+	   maxIdle="10" 
+	   maxWait="-1" 
+	   name="jdbc/wmhistory" 
+	   type="javax.sql.DataSource" 
+	   url="jdbc:h2:tcp://localhost/~/wmhistory" 
+	   username="wmhistory"
+	   password="wmhistory" />
+</Context>

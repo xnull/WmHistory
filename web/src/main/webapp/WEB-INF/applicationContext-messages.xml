@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+	xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd 
+     	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
+		
+<!-- 		регистрация -->
+	<bean id="registrationConfirmCodeSenderService" class="ru.wmtool.services.RegistrationConfirmCodeSenderService" scope="prototype" />
+	
+	<bean id="messageBuilder" class="ru.wmtool.message.registration.impl.RegistrationConfirmMessageBuilderImpl" >
+		<property name="activationServletPath" value="http:/localhost:8080/web/ActivationServlet" />
+	</bean>
+<!-- 		сервис забыл пароль -->
+	<bean id="forgotPasswordSenderService" class="ru.wmtool.services.ForgotPasswordSenderService" scope="prototype">
+	</bean>
+	
+<!-- 	<bean id="forgotPassMessageBuilder" class="ru.wmtool.message.registration.impl.ForgotPasswordMessageBuilderImpl" > -->
+<!-- 		<property name="activationServletPath" value="http:/localhost:8084/web/ActivationServlet" /> -->
+<!-- 	</bean> -->
+	
+	
+	<bean id="messageSender" class="ru.wmtool.sender.impl.FakeMessageSender" />
+	
+	<bean id="codeGenerator" class="ru.wmtool.generator.impl.RegistrationConfirmCodeGeneratorImpl" />
+	
+	<bean id="templateEngine" class="ru.wmtool.templates.engine.freemarker.FreemarkerTemplateEngineImpl" />
+	
+	<bean id="freemarkerConfig" class="org.springframework.ui.freemarker.FreeMarkerConfigurationFactoryBean">
+    	<property name="templateLoaderPath" value="/message-templates"/>
+	</bean>
+	
+</beans>
